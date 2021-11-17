@@ -31,6 +31,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -121,6 +125,10 @@
   {
     "type": "false",
     "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
   },
   {
     "type": "nil",

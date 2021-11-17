@@ -6,6 +6,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
           "name": "literal"
         },
         {
@@ -22,13 +26,9 @@
         }
       ]
     },
-    "number": {
+    "identifier": {
       "type": "PATTERN",
-      "value": "\\d+(\\.\\d+)?"
-    },
-    "string": {
-      "type": "PATTERN",
-      "value": "\"([^\"\\\\]|\\\\.)*\""
+      "value": "[a-z_]+"
     },
     "literal": {
       "type": "CHOICE",
@@ -54,6 +54,14 @@
           "value": "nil"
         }
       ]
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "\\d+(\\.\\d+)?"
+    },
+    "string": {
+      "type": "PATTERN",
+      "value": "\"([^\"\\\\]|\\\\.)*\""
     },
     "grouping": {
       "type": "SEQ",

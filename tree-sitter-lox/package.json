@@ -1,6 +1,5 @@
 {
     "name": "tree-sitter-lox",
-    "version": "0.0.1",
     "description": "lox grammar for tree-sitter",
     "main": "bindings/node",
     "keywords": [

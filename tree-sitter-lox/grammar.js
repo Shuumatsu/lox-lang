@@ -2,29 +2,24 @@ module.exports = grammar({
     name: 'lox',
 
     rules: {
-        expression: $ =>
-            choice(
-                $.literal,
-                $.unary_expression,
-                $.binary_expression,
-                $.grouping
-            ),
+        expression: ($) => choice($.identifier, $.literal, $.unary_expression, $.binary_expression, $.grouping),
 
-        number: $ => /\d+(\.\d+)?/,
-        string: $ => /"([^"\\]|\\.)*"/,
-        literal: $ => choice($.number, $.string, 'true', 'false', 'nil'),
+        identifier: ($) => /[a-z_]+/,
 
-        grouping: $ => seq('(', $.expression, ')'),
+        literal: ($) => choice($.number, $.string, 'true', 'false', 'nil'),
+        number: ($) => /\d+(\.\d+)?/,
+        string: ($) => /"([^"\\]|\\.)*"/,
 
-        unary_expression: $ =>
-            prec(3, choice(seq('-', $.expression), seq('!', $.expression))),
+        grouping: ($) => seq('(', $.expression, ')'),
 
-        binary_expression: $ =>
+        unary_expression: ($) => prec(3, choice(seq('-', $.expression), seq('!', $.expression))),
+
+        binary_expression: ($) =>
             choice(
                 prec.left(2, seq($.expression, '*', $.expression)),
                 prec.left(2, seq($.expression, '/', $.expression)),
                 prec.left(1, seq($.expression, '+', $.expression)),
                 prec.left(1, seq($.expression, '-', $.expression))
-            )
-    }
+            ),
+    },
 })
