@@ -1,0 +1,19 @@
+{
+    "name": "tlox",
+    "private": true,
+    "version": "1.0.0",
+    "workspaces": [
+        "interpreter",
+        "tree-sitter-lox"
+    ],
+    "dependencies": {},
+    "devDependencies": {
+        "tree-sitter-cli": "^0.20.0",
+        "prettier": "^2.4.1",
+        "@swc/cli": "^0.1.51",
+        "@swc/core": "^1.2.108",
+        "@types/node": "^16.11.7",
+        "chokidar": "^3.5.2",
+        "typescript": "^4.4.4"
+    }
+}
